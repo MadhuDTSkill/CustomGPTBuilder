@@ -1,0 +1,16 @@
+my_microservices_project/
+│
+├── service1/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   └── Dockerfile
+│
+├── service2/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   └── Dockerfile
+│
+├── docker-compose.yml
+└── README.md
