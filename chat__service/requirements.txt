@@ -7,3 +7,5 @@ fastapi
 uvicorn
 python-jose
 sqlmodel
+psycopg2-binary
+psycopg2

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  user-service:
+    build:
+      context: ./users__service
+    container_name: user_service
+    ports:
+      - "8000:8000"
+    networks:
+      - fastapi-network
+    env_file:
+      - .env           
+      - ./users__service/.env
+    depends_on:
+      - postgres_service
+
+  chat-service:
+    build:
+      context: ./chat__service
+    container_name: chat_service
+    ports:
+      - "8001:8001"
+    networks:
+      - fastapi-network
+    env_file:
+      - .env           
+      - ./chat__service/.env  
+    depends_on:
+      - postgres_service
+
+  postgres_service:
+    image: postgres:16
+    container_name: postgres_service
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - fastapi-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  fastapi-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
