@@ -1,9 +1,9 @@
 from fastapi import APIRouter, status, HTTPException, Depends, Request
 from sqlmodel import Session
-from components.schema import UserCreate, UserOut, UserLogin, LoginResponse
-from components.user_manager import UserManager
-from components.dependencies import get_session
-from components.decorators import authenticate
+from .components.schema import UserCreate, UserOut, UserLogin, LoginResponse
+from .components.user_manager import UserManager
+from .components.dependencies import get_session
+from .components.decorators import authenticate
 
 auth_router = APIRouter(tags = ['Authentication'])
 

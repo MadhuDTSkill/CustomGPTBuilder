@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from src.routes import auth_router
-from components.db import init_db
+from src.components.db import init_db
 from contextlib import contextmanager
 
 app = FastAPI()
